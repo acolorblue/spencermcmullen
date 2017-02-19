@@ -1574,87 +1574,98 @@ $("#message").click(function(){
 
 
 //ACTUAL iMESSAGE
+ 
+var booReply = false;
 $(function() {
   var ref = new Firebase("https://gallery-commenting-system.firebaseio.com/");
 
- var deliver = function() {
-   $(".delivered").remove();
-    $('.delivered').addClass('old');
-    $('.message-screen').append('<div class="delivered"><span>Delivered</span></div>');
+   var deliver = function() {
+      $(".delivered").remove();
+      $('.delivered').addClass('old');
+      $('.message-screen').append('<div class="delivered"><span>Delivered</span></div>');
    
-    $('.message-screen').animate({
-      scrollTop: $(".message-screen")[0].scrollHeight
-    }, 700)
-  };
+      $('.message-screen').animate({
+        scrollTop: $(".message-screen")[0].scrollHeight
+      }, 700)
+    };
   
   
   function scrollDown() {
   var focusBottom = document.getElementById("adobewordpress");
   focusBottom.scrollTop = focusBottom.scrollHeight;
-}
+  }
   
   function formatAMPM(date) {
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  var ampm = hours >= 12 ? 'PM' : 'AM';
-  hours = hours % 12;
-  hours = hours ? hours : 12; // the hour '0' should be '12'
-  minutes = minutes < 10 ? '0'+minutes : minutes;
-  var strTime = hours + ':' + minutes + ' ' + ampm;
-  return strTime;
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
 }
 
   
     ref.on("child_added", function(snapshot) {
-      var newPost = snapshot.val();
-      $("#adobewordpress").append('<div class="singlemessage"> <div class="sender-text"><p>' +newPost.message +'<date><b class="handlename">' + newPost.name +'</b>'+" " + newPost.postedAt + '</date></div></div>');
+        var newPost = snapshot.val();
+      
+     if(newPost.reply){
+         $("#adobewordpress").append('<div class="singlemessage"> <div class="receiver-text"><p>' +newPost.message +'<date><b class="handlename">' + newPost.name +'</b>'+" " + newPost.postedAt + '</date></div></div>');
+      }else{
+        $("#adobewordpress").append('<div class="singlemessage"> <div class="sender-text"><p>' +newPost.message +'<date><b class="handlename">' + newPost.name +'</b>'+" " + newPost.postedAt + '</date></div></div>');
+      } 
        scrollDown();
     });
 
     $("#comment").submit(function() {
       if($("#name").val()&&$("#message").val()){
         
-      var d = new Date();
-    var clock = formatAMPM(d);
-    var month = d.getMonth() + 1;
-    var day = d.getDate();
-    var currentDate =
-      (('' + month).length < 2 ? '0' : '') + month + '/' +
-      (('' + day).length < 2 ? '0' : '') + day + '/' +
-
-      d.getFullYear() + '&nbsp;&nbsp;' + clock;
-   
- /* var currentDate = new Date().toLocaleString('en-US',options); 
-  */  
+        var d = new Date();
+        var clock = formatAMPM(d);
+        var month = d.getMonth() + 1;
+        var day = d.getDate();
+        var currentDate =
+          (('' + month).length < 2 ? '0' : '') + month + '/' +
+          (('' + day).length < 2 ? '0' : '') + day + '/' +
+          d.getFullYear() + '&nbsp;&nbsp;' + clock; 
         
+        if($("#message").val().indexOf('@') > -1){
+          booReply = true;
+        }else{
+          booReply = false;
+        }
         
-      ref.push().set({
+        ref.push().set({
+      reply:booReply,
         name: $("#name").val(),
         message: $("#message").val(),
         postedAt: currentDate
-      });
-        
+        });
+        if(booReply==false)
         deliver();
         
-         setTimeout(function() {
-      $('form.chat > span').addClass('spinner');
-    }, 100);
+        setTimeout(function() {
+          $('form.chat > span').addClass('spinner');
+        }, 100);
 
-    setTimeout(function() {
-      $('form.chat > span').removeClass('spinner');
-    }, 2000);
+        setTimeout(function() {
+          $('form.chat > span').removeClass('spinner');
+        }, 2000);
       }
+
       $("#message").val("");
-      return false;
+        return false;
+      });
     });
-});
 
 function slugify(text) {
   return text.toString().toLowerCase().trim()
-    .replace(/&/g, '-and-')
-    .replace(/[\s\W-]+/g, '-')
-    .replace(/[^a-zA-Z0-9-_]+/g,'');
+      .replace(/&/g, '-and-')
+      .replace(/[\s\W-]+/g, '-')
+      .replace(/[^a-zA-Z0-9-_]+/g,'');
 }
+
 
 
 </script>
