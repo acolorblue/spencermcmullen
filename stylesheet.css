@@ -23,7 +23,7 @@ body {
 }
 
 
-.screen {
+#screen {
   position: absolute;
   left: 0;
   top: 0;
@@ -35,7 +35,7 @@ body {
   overflow: hidden;
 }
 
-.scene {
+#scene {
   position: absolute;
   top: 50%;
   left: 50%;
