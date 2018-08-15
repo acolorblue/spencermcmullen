@@ -47,7 +47,7 @@ body {
 
 .loading {
   position: absolute;
-  font-family: ahamonomonospaced,verdana, monospace;
+  font-family: "Ahamono Monospaced",verdana, monospace;
   text-transform: uppercase;
   font-size: 18px;
   color: #FFF;
@@ -59,7 +59,7 @@ body {
 
 #Mozilla {
   position: relative;
-  font-family: ahamonomonospaced,verdana, monospace;
+  font-family: "Ahamono Monospaced",verdana, monospace;
   text-transform: uppercase;
   font-size: 18px;
   color: #FFF;
@@ -142,7 +142,7 @@ body {
   background-color: white;
   color: white;
   text-align: center;
-  font-family: "ahamonomonospaced", "Courier New";
+  font-family: "Ahamono Monospaced", "Courier New";
 }
 
 @media screen and (min-width: 38em) {
@@ -202,13 +202,13 @@ a.sc-player:hover,
 
 /* FONT */
 .display {
-  font-family: "ahamonomonospaced", "Courier New";
+  font-family: "Ahamono Monospaced", "Courier New";
 }
 
 h1.soundcloud {
   display: none;
   margin-top: 50px;
-  font-family: "ahamonomonospaced", "Courier New";
+  font-family: "Ahamono Monospaced", "Courier New";
   text-transform: uppercase;
   font-size: 2em;
   line-height: 1;
@@ -679,7 +679,7 @@ margin-bottom: -75px;
 /* ADJUST MENU COLOR/SIZE/POSITION */
 button.popup {
   background-color:RGBA(19, 19, 19, 0.14);
-  font-family: ahamonomonospaced;
+  font-family: "Ahamono Monospaced";
   font-size:17px;
   border-bottom-left-radius:4px;
   border-bottom-right-radius:4px;
@@ -739,7 +739,7 @@ button:focus {
   background-repeat: none;
   width: 650px;
   height: 650px;
-  font-family: ahamonomonospaced, 'Source Code Pro';
+  font-family: "Ahamono Monospaced", 'Source Code Pro';
   font-size: 19px;
   -webkit-transform: scale(0.8);
 /*                   0.65 */
@@ -988,7 +988,7 @@ display:none;
   border: none;
   border-radius: 3px;
   padding: 10px;
-  font-family: ahamonomonospaced, 'Open Sans', sans-serif;
+  font-family: "Ahamono Monospaced", 'Open Sans', sans-serif;
   color: #fff;
   text-shadow: 1px 1px #333;
   outline: 0;
@@ -1012,7 +1012,7 @@ display:none;
   border: none;
   border-radius: 3px;
   padding: 10px;
-  font-family: ahamonomonospaced, 'Open Sans', sans-serif;
+  font-family: "Ahamono Monospaced", 'Open Sans', sans-serif;
   color: #fff;
   text-shadow: 1px 1px #333;
   outline: 0;
@@ -1067,7 +1067,7 @@ display:none;
 
 /* CONTROL MENU POP UP MENU FONT STYLE */
 .commentsnav .submenucontent a {
-  font-family: ahamonomonospaced, Courier New, Arial, Helvetica, sans-serif;
+  font-family: "Ahamono Monospaced", Courier New, Arial, Helvetica, sans-serif;
   font-size: 12px;
   color: #fff;
   display: block;
@@ -1107,7 +1107,7 @@ margin-bottom: -75px;
 /* ADJUST MENU COLOR/SIZE/POSITION */
 .commentsnav button.popupcomments {
   background-color:RGBA(19, 19, 19, 0.14);
-  font-family: ahamonomonospaced;
+  font-family: "Ahamono Monospaced";
   font-size:17px;
   border-bottom-left-radius:4px;
   border-bottom-right-radius:4px;
