@@ -734,7 +734,7 @@ button:focus {
 .bodytexteditor {
   overflow: hidden;
   margin: 0;
-  background: url(https://github.com/acolorblue/gallery/blob/master/images/Credits/Orange%20Room.jpg?raw=true);
+  background: url("https://raw.githubusercontent.com/acolorblue/spencermcmullen/master/Images/Credits/Unidentified%20-%20Orange%20Room.jpg");
   background-size: cover;
   background-repeat: none;
   width: 650px;
