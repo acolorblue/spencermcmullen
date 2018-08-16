@@ -325,7 +325,7 @@ h1.soundcloud {
   left: 50%;
   margin-left: -25px;
   z-index: 1;
-  background: url('https://github.com/acolorblue/gallery/blob/master/images/Soundcloud-PlayButton.png?raw=true');
+  background: url("https://raw.githubusercontent.com/acolorblue/libraries/master/Images/0.%20Icons/Play%20-%20Pause/Play%20-%20Pause.png?token=ARSbowte-TkJdBDDH-Ndxv_-FsnDvXJSks5bfg34wA%3D%3D");
   background-position: top;
   background-size: 45px auto;
   border-radius: 50%;
